@@ -8,9 +8,10 @@ namespace EFCodeFirstTutorial.Models {
     // Inherit from DB Context
     public class AppDbContext : DbContext {
         public DbSet<Customer> Customers { get; set; }
-
+        public DbSet<Order>Orders { get; set; } //added for Order Class
         //default constructor
         public AppDbContext() { }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder) {
             

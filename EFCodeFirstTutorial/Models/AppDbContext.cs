@@ -9,6 +9,7 @@ namespace EFCodeFirstTutorial.Models {
     public class AppDbContext : DbContext {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order>Orders { get; set; } //added for Order Class
+        public DbSet<Item> Items { get; set; } //added for Item Class
         //default constructor
         public AppDbContext() { }
         

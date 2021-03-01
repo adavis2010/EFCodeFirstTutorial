@@ -8,8 +8,8 @@ namespace EFCodeFirstTutorial.Models {
     public class Customer {
         public int Id { get; set; }    //Primary Key
         [StringLength(10), Required]// ATTRIBUTE String length will be 10 char. Required = cannot be null
-        public string Code { get; set; } // ATTRIBUTE Must be a unique value
-        [StringLength(50), Required]
+        public string Code { get; set; } 
+        [StringLength(50), Required] // ATTRIBUTE Must be a unique value
         public string Name { get; set; }
         public bool IsNational { get; set; }
         [Column(TypeName = "decimal(9,2)")] //ATTRIBUTE

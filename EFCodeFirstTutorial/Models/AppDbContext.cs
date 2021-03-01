@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EFCodeFirstTutorial.Models {
+    
     // Inherit from DB Context
     public class AppDbContext : DbContext {
+        public DbSet<Customer> Customers { get; set; }
+
         //default constructor
         public AppDbContext() { }
 

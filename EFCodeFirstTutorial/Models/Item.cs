@@ -9,8 +9,8 @@ namespace EFCodeFirstTutorial {
         
 
         public int Id { get; set; }
-        [StringLength(50), Required] // Attribute
         public string Name { get; set; }
+        [StringLength (30), Required] //Attribute
         [Column(TypeName = "decimal (9,2)")] //Attribute
         public decimal Price { get; set; }
 

@@ -4,14 +4,16 @@ using EFCodeFirstTutorial.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCodeFirstTutorial.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210301203551_Orderline Class")]
+    partial class OrderlineClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,20 +112,24 @@ namespace EFCodeFirstTutorial.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ItemId")
+                        .HasMaxLength(15)
                         .HasColumnType("int");
 
                     b.Property<int>("OrderId")
+                        .HasMaxLength(50)
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
+                        .HasMaxLength(20)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId");
-
-                    b.HasIndex("OrderId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orderlines");
                 });
@@ -141,21 +147,11 @@ namespace EFCodeFirstTutorial.Migrations
 
             modelBuilder.Entity("EFCodeFirstTutorial.Orderline", b =>
                 {
-                    b.HasOne("EFCodeFirstTutorial.Item", "Item")
+                    b.HasOne("EFCodeFirstTutorial.Models.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
 
-                    b.HasOne("EFCodeFirstTutorial.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Item");
-
-                    b.Navigation("Order");
+                    b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
         }

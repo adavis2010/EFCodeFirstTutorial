@@ -62,6 +62,27 @@ namespace EFCodeFirstTutorial.Controllers {
 
         }
 
+        //Delete/ Remove
+        public async Task<Customer> Remove(int id) {
+            var cstmr = await _context.Customers.FindAsync(id);
+            if (cstmr == null) {
+                throw new Exception("Cannot be found!");
+            }
+            _context.Customers.Remove(cstmr);
+            var rowsAffected = await _context.SaveChangesAsync();
+            if (rowsAffected != 1) {
+                throw new Exception("Remove Failed");
+            }
+            return cstmr;
+
+
+
+
+
+
+
+
+        }
 
 
 

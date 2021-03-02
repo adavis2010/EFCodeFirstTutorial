@@ -7,7 +7,7 @@ using EFCodeFirstTutorial.Controllers;
 namespace EFCodeFirstTutorial {
     class Program {
         //Add async to make it Asynchronous
-        public  static async Task Main(string[] args) {
+        public static async Task Main(string[] args) {
 
             //Add data to customers table
             var Customer = new Customer[]{

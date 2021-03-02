@@ -59,43 +59,26 @@ namespace EFCodeFirstTutorial.Controllers {
                 throw new Exception("Change Failed!");
             }
             return item;
-            //Delete / Remove
-            public async Task<Item> Remove(int id) {
-                var itm = await _context.Items.FindAsync(id);
-                if (itm == null) {
-                    throw new Exception("Cannot be found!");
-                }
-                _context.Items.Remove(itm);
-                var rowsAffected = await _context.SaveChangesAsync();
-                if (rowsAffected != 1) {
-                    throw new Exception("Remove Failed");
-                }
-                return itm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+        //Delete / Remove  
+        public async Task<Item> Remove(int id) {
+            var itm = await _context.Items.FindAsync(id);
+            if (itm == null) {
+                throw new Exception("Cannot be found!");
             }
+            _context.Items.Remove(itm);
+            var rowsAffected = await _context.SaveChangesAsync();
+            if (rowsAffected != 1) {
+                throw new Exception("Remove Failed");
+            }
+            return itm;
+
+
+
+
+
+
+
 
 
 
@@ -114,5 +97,23 @@ namespace EFCodeFirstTutorial.Controllers {
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
+

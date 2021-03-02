@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EFCodeFirstTutorial.Controllers {
-    class OrdersController {
+    public class OrdersController {
 
         private readonly AppDbContext _context;
 
@@ -59,7 +59,6 @@ namespace EFCodeFirstTutorial.Controllers {
             return;
 
         }
-
 
         //Delete/ Remove
         public async Task<Order> Remove(int id) {
